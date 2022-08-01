@@ -130,10 +130,6 @@ public class Mustache_Example_2 {
             LOG.error("{}",e);
         }
 
-
-
-
-
     }
 }
 
