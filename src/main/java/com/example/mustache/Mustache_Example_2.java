@@ -31,23 +31,17 @@ public class Mustache_Example_2 {
 
     @Autowired
     private static context context;
-//    List<Item> items=new ArrayList<>(new Item("fdsf","fsdf", {"fwe","Fewfe"}), )
+
 
     public static void main(String[] args) throws IOException {
-
-//        context n=new context();
-        List<Item> items= Arrays.asList(
-                new Item("Item 1", "$19.99", Arrays.asList("uhbjhbj", "jnj")),
-                new Item("Item 2", "$29.99", Arrays.asList("hvh", "hgvhv"))
-        );
 
 //        item.setName("Divyansh");
 //        item.setName("sdjkfnsd");
 //        System.out.println(item.getName());
-        for (Item s:items)
-        {
-            System.out.println(s.getName());
-        }
+//        for (Item s:items)
+//        {
+//            System.out.println(s.getName());
+//        }
 
 
         System.out.println();
