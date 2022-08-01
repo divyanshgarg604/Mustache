@@ -21,16 +21,16 @@ import java.util.Arrays;
 import java.util.List;
 
 
-@SpringBootApplication
+
 public class Mustache_Example_2 {
     private static Logger LOG = LoggerFactory.getLogger(Mustache_Example_2.class);
 
     @Autowired
     private static Item item;
 
-
-    @Autowired
-    private static context context;
+//
+//    @Autowired
+//    private static context context;
 //    List<Item> items=new ArrayList<>(new Item("fdsf","fsdf", {"fwe","Fewfe"}), )
 
     public static void main(String[] args) throws IOException {
@@ -53,21 +53,33 @@ public class Mustache_Example_2 {
         System.out.println();
 
 
-        SpringApplication.run(Mustache_Example_2.class, args);
-//        context context = new context();
+
+        context context = new context();
         context.setClassname("Divyansh");
         context.setPackages("com.example.mustache");
+        context.setName("Item 1");
+        context.setPrice("Rs 100/-");
+        context.setFeature("Beautiful");
+        context.setDbUrl("jdbc:mysql://localhost:3306/myshop");
+        context.setPassword("Gemini@123");
+        context.setUsername("root");
+//        context.setQuery("select * from cold_drinks_table");
+        context.setRestClassName("Message");
         System.out.println(context.getClassname()+" "+context.getPackages());
-        String filename = context.getClassname() + ".java";
-        String path = "";
+
+        //StringWriter object
+        StringWriter writer = new StringWriter();
+        MustacheFactory mf = new DefaultMustacheFactory();
+        Mustache mustache2 = mf.compile("template2.mustache");
+        mustache2.execute(new PrintWriter(System.out), context).flush();
+        System.out.println();
         Path path1 = Paths.get("D:\\Intellj Projects\\Mustache_Example\\src\\main\\java\\com\\example\\mustache");
-        path = path1 + File.separator + filename;
-        LOG.info(path);
+        String filename = context.getClassname() + ".java";
+        String path = path1 + File.separator + filename;
+        LOG.info("{}",path);
         File files = new File(path);
         try {
             if (files.createNewFile()) {
-                StringWriter writer = new StringWriter();
-                MustacheFactory mf = new DefaultMustacheFactory();
                 Mustache mustache = mf.compile("javatemplate.mustache");
                 mustache.execute(writer, context).flush();
                 String s = writer.toString();
@@ -77,12 +89,53 @@ public class Mustache_Example_2 {
             }
             else
                 LOG.info("File Exits {}.java", context.getClassname());
-        } catch (IOException e) {
+        }
+        catch (IOException e)
+        {
             LOG.error("{}", e);
         }
 
+        Path path2=Paths.get("D:\\Intellj Projects\\Mustache_Example\\src\\main\\java\\com\\example\\mustache"+"\\ConnectionPool.java");
+        File files1=new File(String.valueOf(path2));
+        try {
+            if (files1.createNewFile()) {
+                Mustache mustache3 = mf.compile("ConnectionPool.mustache");
+                mustache3.execute(writer, context).flush();
+                Files.write(path2, writer.toString().getBytes(), StandardOpenOption.APPEND);
+                LOG.info("File Created Successfully");
+                writer.close();
+            }
+            else
+                LOG.info("File Exits");
+        }
+        catch(IOException e)
+        {
+            LOG.error("{}",e);
+        }
+        Path path3=Paths.get("D:\\Intellj Projects\\Mustache_Example\\src\\main\\java\\com\\example\\mustache"+"\\Message.java");
+        File files2=new File(String.valueOf(path3));
+        try {
+            if (files2.createNewFile()) {
+                Mustache mustache4 = mf.compile("RestController.mustache");
+                mustache4.execute(writer, context).flush();
+                Files.write(path3, writer.toString().getBytes(), StandardOpenOption.APPEND);
+                LOG.info("File Created Successfully");
+                writer.close();
+            }
+            else
+                LOG.info("File Exits");
+        }
+        catch(IOException e)
+        {
+            LOG.error("{}",e);
+        }
+
+
+
+
+
     }
-    }
+}
 
 
 //        Path path=Paths.get("D:\\Intellj Projects\\Mustache_Example\\src\\main\\java\\com\\example\\mustache")
