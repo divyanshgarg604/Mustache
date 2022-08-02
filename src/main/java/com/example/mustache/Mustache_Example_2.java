@@ -64,7 +64,7 @@ public class Mustache_Example_2 {
         context.setPassword("Gemini@123");
         context.setUsername("root");
 //        context.setQuery("select * from cold_drinks_table");
-        context.setRestClassName("Message");
+        context.setRestClassName("Restcontroller");
         System.out.println(context.getClassname()+" "+context.getPackages());
 
         //StringWriter object
@@ -112,7 +112,7 @@ public class Mustache_Example_2 {
         {
             LOG.error("{}",e);
         }
-        Path path3=Paths.get("D:\\Intellj Projects\\Mustache_Example\\src\\main\\java\\com\\example\\mustache"+"\\Message.java");
+        Path path3=Paths.get("D:\\Intellj Projects\\Mustache_Example\\src\\main\\java\\com\\example\\mustache"+"\\Restcontroller.java");
         File files2=new File(String.valueOf(path3));
         try {
             if (files2.createNewFile()) {
