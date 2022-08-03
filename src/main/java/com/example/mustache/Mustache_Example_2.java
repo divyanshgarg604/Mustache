@@ -3,6 +3,7 @@ package com.example.mustache;
 import com.github.mustachejava.DefaultMustacheFactory;
 import com.github.mustachejava.Mustache;
 import com.github.mustachejava.MustacheFactory;
+import com.github.mustachejava.util.InternalArrayList;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
@@ -18,6 +19,7 @@ import java.nio.file.StandardOpenOption;
 import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 
@@ -27,6 +29,8 @@ public class Mustache_Example_2 {
 
     @Autowired
     private static Item item;
+
+
 
 //
 //    @Autowired
@@ -129,6 +133,43 @@ public class Mustache_Example_2 {
         {
             LOG.error("{}",e);
         }
+        Path data = Paths.get("D:\\Intellj Projects\\Mustache_Example\\src\\main\\resources\\ContextNames.txt");
+        String content = String.valueOf(Files.readAllLines(data));
+        System.out.println(content);
+        FileReader reader= new FileReader(String.valueOf(data));
+        System.out.println(reader);
+        BufferedReader br = new BufferedReader(new FileReader(String.valueOf(data)));
+        String s;
+        FileOutputStream fout=new FileOutputStream(String.valueOf(data));
+        List<String> list= new ArrayList<>();
+        while((s=br.readLine())!=null) {
+            list.add(s);
+        }
+
+
+//                Files.readAllLines(data);
+
+        Path path4=Paths.get("D:\\Intellj Projects\\Mustache_Example\\src\\main\\java\\com\\example\\mustache"+"\\contextTemplate.java");
+        File files3=new File(String.valueOf(path4));
+        String p="uyguh";
+        try {
+            if (files3.createNewFile()) {
+                StringReader reader1=new StringReader(content);
+                Mustache mustache7 = mf.compile("contextTemplate.mustache");
+                mustache7.execute(writer, content).flush();
+                Files.write(path4, writer.toString().getBytes(), StandardOpenOption.APPEND);
+
+                LOG.info("File Created Successfully");
+                writer.close();
+            }
+            else
+                LOG.info("File Exits");
+        }
+        catch(IOException e)
+        {
+            LOG.error("{}",e);
+        }
+
 
     }
 }
