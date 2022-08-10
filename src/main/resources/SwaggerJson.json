@@ -1,0 +1,7 @@
+
+
+
+{
+  "variables":[[name, id],[studentId, name, id]],
+  "classname":["Student","Books"]
+}
