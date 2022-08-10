@@ -8,14 +8,14 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @SpringBootApplication
-public class Message{
-      public static final Logger Log = LoggerFactory.getLogger(Message.class);
+public class Restcontroller{
+      public static final Logger Log = LoggerFactory.getLogger(Restcontroller.class);
       @GetMapping("/message")
             public String welcome(){
                   return "hello";
             }
             public static void main(String args[])
             {
-            SpringApplication.run(Message.class, args);
+            SpringApplication.run(Restcontroller.class, args);
       }
 }
