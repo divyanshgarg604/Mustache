@@ -28,12 +28,12 @@ public class Handlebar {
         String text=template.apply(obj);
         System.out.println(text);
 
-        Path path1 = Paths.get("D:\\Intellj Projects\\Mustache_Example\\src\\main\\resources");
-        String filename = "AutogeratedYaml" + ".yml";
-        String path = path1 + File.separator + filename;
-
-        FileWriter fileWriter =new FileWriter(path);
-        fileWriter.write(text);
-        fileWriter.close();
+//        Path path1 = Paths.get("D:\\Intellj Projects\\Mustache_Example\\src\\main\\resources");
+//        String filename = "AutogeratedYaml" + ".yml";
+//        String path = path1 + File.separator + filename;
+//
+//        FileWriter fileWriter =new FileWriter(path);
+//        fileWriter.write(text);
+//        fileWriter.close();
     }
 }
