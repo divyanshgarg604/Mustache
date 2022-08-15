@@ -26,6 +26,7 @@ import java.util.stream.Collectors;
 @SpringBootApplication
 public class ClassLoader {
 
+
     private static final ObjectMapper mapper = new ObjectMapper();
     private static final Logger log = LoggerFactory.getLogger(ClassLoader.class);
 
@@ -57,7 +58,7 @@ public class ClassLoader {
     public static void convertIntoAPIJson() {
         JSONObject json2 = new JSONObject();
         try {
-            JSONObject json1 = (JSONObject) new JSONParser().parse(new FileReader("C:\\Internal Project\\GeminiProject\\Mustache\\src\\main\\resources\\Books.json"));
+            JSONObject json1 = (JSONObject) new JSONParser().parse(new FileReader("D:\\Intellj Projects\\Mustache_Example\\src\\main\\resources\\Books.json"));
 
             Set<String> keys = json1.keySet();
 
@@ -76,13 +77,13 @@ public class ClassLoader {
         }
 
         try {
-            FileWriter file = new FileWriter("C:\\Internal Project\\GeminiProject\\Mustache\\src\\main\\resources\\SwaggerJson.json");
+            FileWriter file = new FileWriter("D:\\Intellj Projects\\Mustache_Example\\src\\main\\resources\\SwaggerJson.json");
             file.write(json2.toJSONString());
             file.close();
         } catch (IOException e) {
-            log.error("Exception in writing into JSON file" + e.getMessage());
+            log.error("Exception in writing into JSON file{}",  e.getMessage());
         }
-        System.out.println("JSON file created for SwaggerAPI Yaml File: " + json2);
+        log.info("JSON file created for SwaggerAPI Yaml File:{}" , json2);
     }
 
     /**

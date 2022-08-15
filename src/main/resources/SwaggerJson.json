@@ -1,7 +1,1 @@
-
-
-
-{
-  "variables":[[name, id],[studentId, name, id]],
-  "classname":["Student","Books"]
-}
+{"variables":[[name, id],[studentId, name, id]],"classname":["Student","Books"]}
