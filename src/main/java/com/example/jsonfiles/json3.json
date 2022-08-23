@@ -1,6 +1,7 @@
 {
-  "variable":["id","name"],
-  "className": "student"
+  "dataType": [["int","String"],["int","String"]],
+  "variable":[["id","name"],["name","bokksid"]],
+  "className": ["student","Books"]
 }
 
 

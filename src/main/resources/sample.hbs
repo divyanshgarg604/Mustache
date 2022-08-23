@@ -1,0 +1,34 @@
+<!--    {{#each className}} {{#if @first}} {{this}} {{@key}} {{/if}} -->
+<!--    {{/each}} -->
+<!--    {{#each }} -->
+<!--    {{this.className.Student.variable}} -->
+<!--    {{/each}} -->
+<!-- {{#each className}} -->
+<!-- {{this}} -->
+<!-- parameters: -->
+<!--     name: {{#each variable}} {{#if @first}} {{this}} {{/if}} {{/each}} -->
+<!--     type: {{#each dataType}} {{#if @first}} {{this}} {{/if}} {{/each}} -->
+<!-- {{/each}} -->
+{{#each className}}{{this}}
+props:
+{{#each variable}}
+    name: {{this}}
+{{#each dataType}}
+    type: {{this}}
+    {{/each}}
+    {{/each}}
+{{/each}}
+
+ output:
+      Books
+      parameters:
+            name: "Bookid"
+            type: "integer"
+      Student
+      parameters:
+            name: "name"
+            type: "String"
+
+
+
+

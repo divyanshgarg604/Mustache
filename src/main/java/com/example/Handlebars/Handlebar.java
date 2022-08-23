@@ -21,11 +21,11 @@ public class Handlebar {
         try
         {
             Handlebars handlebars = new Handlebars();
-            Template template = handlebars.compile("swaggerapiTemplate");
+            Template template = handlebars.compile("sample");
             Path path1 = Paths.get("D:\\Intellj Projects\\Mustache_Example\\src\\main\\resources");
             String filename = "SwaggerYaml" + ".yml";
             String path = path1 + File.separator + filename;
-            FileReader fileReader = new FileReader("D:\\Intellj Projects\\Mustache_Example\\src\\main\\java\\com\\example\\jsonfiles\\json3.json");
+            FileReader fileReader = new FileReader("D:\\Intellj Projects\\Mustache_Example\\src\\main\\java\\com\\example\\jsonfiles\\json4.json");
             JSONParser jsonParser = new JSONParser();
             Object obj = jsonParser.parse(fileReader);
             FileWriter fileWriter =new FileWriter(path);

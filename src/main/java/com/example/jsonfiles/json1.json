@@ -1,9 +1,13 @@
-{
-  "variable":
-   [{"kdsnc":cs},"Dwedew"]
-  ,
-  "className":
-
-    "Books"
-
-}
+[{
+  "id":1,
+  "name":"John",
+  "salary":5000,
+},{
+  "id":2,
+  "name":"Franc",
+  "salary":4000,
+},{
+  "id":3,
+  "name":"Ram",
+  "salary":9000,
+}]

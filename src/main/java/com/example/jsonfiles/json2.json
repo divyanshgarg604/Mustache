@@ -1,7 +1,36 @@
 {
-  "Books": {
-    "studentId": null,
-    "name": null,
-    "id": null
-  }
+  "className": [
+    {
+      "student": {
+        "variable": [
+          {
+            "name": {
+              "datatype": "String"
+            }
+          },
+          {
+            "id": {
+              "datatype": "String"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "book": {
+        "variable": [
+          {
+            "name": {
+              "datatype": "String"
+            }
+          },
+          {
+            "price": {
+              "datatype": "Integer"
+            }
+          }
+        ]
+      }
+    }
+  ]
 }

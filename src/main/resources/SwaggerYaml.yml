@@ -1,0 +1,93 @@
+<!--      false blank  -->
+<!--      -->
+<!--      -->
+<!--     -->
+<!--     -->
+<!--     -->
+<!--     -->
+<!--     -->
+<!--     -->
+<!--     -->
+<!--     -->
+<!--  -->
+<!-- false -->
+<!-- parameters: -->
+<!--     name:   id     -->
+<!--     type:   int     -->
+<!--  -->
+<!-- [B@5b239d7d -->
+<!-- parameters: -->
+<!--     name:   id     -->
+<!--     type:   int     -->
+<!--  -->
+<!-- false -->
+<!-- parameters: -->
+<!--     name:   id     -->
+<!--     type:   int     -->
+<!--  -->
+false
+parameters:
+
+    name: id
+
+    type: int
+    
+    type: String
+    
+    
+    name: name
+
+    type: int
+    
+    type: String
+    
+    
+[B@6572421
+parameters:
+
+    name: id
+
+    type: int
+    
+    type: String
+    
+    
+    name: name
+
+    type: int
+    
+    type: String
+    
+    
+false
+parameters:
+
+    name: id
+
+    type: int
+    
+    type: String
+    
+    
+    name: name
+
+    type: int
+    
+    type: String
+    
+    
+
+
+ output:
+      Books
+      parameters:
+            name: "Bookid"
+            type: "integer"
+      Student
+      parameters:
+            name: "name"
+            type: "String"
+
+
+
+
