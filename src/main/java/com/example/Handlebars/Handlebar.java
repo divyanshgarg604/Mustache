@@ -14,6 +14,8 @@ import java.io.*;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
+
+
 public class Handlebar {
     private static final Logger log = LoggerFactory.getLogger(Handlebar.class);
     public static void SwaggerYaml()
@@ -21,11 +23,11 @@ public class Handlebar {
         try
         {
             Handlebars handlebars = new Handlebars();
-            Template template = handlebars.compile("sample");
+            Template template = handlebars.compile("sample1");
             Path path1 = Paths.get("D:\\Intellj Projects\\Mustache_Example\\src\\main\\resources");
             String filename = "SwaggerYaml" + ".yml";
             String path = path1 + File.separator + filename;
-            FileReader fileReader = new FileReader("D:\\Intellj Projects\\Mustache_Example\\src\\main\\java\\com\\example\\jsonfiles\\json4.json");
+            FileReader fileReader = new FileReader("D:\\Intellj Projects\\Mustache_Example\\src\\main\\java\\com\\example\\jsonfiles\\json1.json");
             JSONParser jsonParser = new JSONParser();
             Object obj = jsonParser.parse(fileReader);
             FileWriter fileWriter =new FileWriter(path);
