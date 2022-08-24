@@ -14,206 +14,176 @@ info:
 host: "petstore.swagger.io"
 basePath: "/v2"
 tags:
-    - name: "student"
+    - name: student
       description: "Everything about your student"
-    - name: "book"
+    - name: book
       description: "Everything about your book"
 schemes:
 - "http"
 paths:
-    /student:
-      post:
-        tags:
-        - "student"
-        summary: "Add a new student object"
-        description: ""
-        operationId: "addstudent"
-        consumes:
-        - "application/json"
-        - "application/xml"
-        produces:
-        - "application/xml"
-        - "application/json"
-        parameters:
-        - in: "body"
-          name: "body"
-          description: "Pet object that needs to be added to the store"
-          required: true
-    /student/{ name }:
-    get:
-      tags:
-      - "student"
-      summary: "Find student by name"
-      description: "Returns a single student"
-      operationId: "getstudentByname"
-      produces:
-      - "application/xml"
-      - "application/json"
-      parameters:
-      - name: "name"
-        in: "path"
-        description: "ID of student to return"
-        required: true
-        type: "String"
-        format: "int64"
-      responses:
-        200:
-          description: "successful operation"
-          schema:
-            $ref: "#/definitions/student"
-        400:
-          description: "Invalid name supplied"
-        404:
-          description: "student not found"
-      security:
-      - api_key: []
-    delete:
-      tags:
-        - "student"
-        summary: "Deletes a student"
-        description: ""
-        operationId: "deletestudent"
-        produces:
-        - "application/xml"
-        - "application/json"
-        parameters:
-        - name: "name"
-          in: "path"
-          description: "Pet student to delete"
-          required: true
-          type: "String"
-          format: "int64""
-        responses:
-          400:
-            description: "Invalid studentvalue"
-        security:
-          - petstore_auth:
-          - "write:pets"
-          - "read:pets"
-    /book:
-      post:
-        tags:
-        - "book"
-        summary: "Add a new book object"
-        description: ""
-        operationId: "addbook"
-        consumes:
-        - "application/json"
-        - "application/xml"
-        produces:
-        - "application/xml"
-        - "application/json"
-        parameters:
-        - in: "body"
-          name: "body"
-          description: "Pet object that needs to be added to the store"
-          required: true
-    /book/{ name }:
-    get:
-      tags:
-      - "book"
-      summary: "Find book by name"
-      description: "Returns a single book"
-      operationId: "getbookByname"
-      produces:
-      - "application/xml"
-      - "application/json"
-      parameters:
-      - name: "name"
-        in: "path"
-        description: "ID of book to return"
-        required: true
-        type: "String"
-        format: "int64"
-      responses:
-        200:
-          description: "successful operation"
-          schema:
-            $ref: "#/definitions/book"
-        400:
-          description: "Invalid name supplied"
-        404:
-          description: "book not found"
-      security:
-      - api_key: []
-    delete:
-      tags:
-        - "book"
-        summary: "Deletes a book"
-        description: ""
-        operationId: "deletebook"
-        produces:
-        - "application/xml"
-        - "application/json"
-        parameters:
-        - name: "name"
-          in: "path"
-          description: "Pet book to delete"
-          required: true
-          type: "String"
-          format: "int64""
-        responses:
-          400:
-            description: "Invalid bookvalue"
-        security:
-          - petstore_auth:
-          - "write:pets"
-          - "read:pets"
+   /student:
+     post:
+       tags:
+       - "student"
+       summary: "Add a new student object"
+       description: ""
+       operationId: "addstudent"
+       consumes:
+       - "application/json"
+       - "application/xml"
+       produces:
+       - "application/xml"
+       - "application/json"
+       parameters:
+       - in: "body"
+         name: "body"
+         description: "Pet object that needs to be added to the store"
+         required: true
+         schema:
+           $ref: "#/definitions/student"
+       responses:
+         405:
+          description: "Invalid input"
+   /student/{ studentId }:
+     get:
+       tags:
+       - "student"
+       summary: "Find student by studentId"
+       description: "Returns a single student"
+       operationId: "getstudentBystudentId"
+       produces:
+       - "application/xml"
+       - "application/json"
+       parameters:
+       - name: "studentId"
+         in: "path"
+         description: "ID of student to return"
+         required: true
+         type: "string"
+         format: "int64"
+       responses:
+         200:
+           description: "successful operation"
+           schema:
+             $ref: "#/definitions/student"
+         400:
+           description: "Invalid studentId supplied"
+         404:
+           description: "student not found"
+     delete:
+       tags:
+       - "student"
+       summary: "Deletes a student"
+       description: ""
+       operationId: "deletestudent"
+       produces:
+       - "application/xml"
+       - "application/json"
+       parameters:
+       - name: "studentId"
+         in: "path"
+         description: "Pet student to delete"
+         required: true
+         type: "string"
+         format: "int64"
+       responses:
+         400:
+           description: "Invalid studentvalue"
+   /book:
+     post:
+       tags:
+       - "book"
+       summary: "Add a new book object"
+       description: ""
+       operationId: "addbook"
+       consumes:
+       - "application/json"
+       - "application/xml"
+       produces:
+       - "application/xml"
+       - "application/json"
+       parameters:
+       - in: "body"
+         name: "body"
+         description: "Pet object that needs to be added to the store"
+         required: true
+         schema:
+           $ref: "#/definitions/book"
+       responses:
+         405:
+          description: "Invalid input"
+   /book/{ bookId }:
+     get:
+       tags:
+       - "book"
+       summary: "Find book by bookId"
+       description: "Returns a single book"
+       operationId: "getbookBybookId"
+       produces:
+       - "application/xml"
+       - "application/json"
+       parameters:
+       - name: "bookId"
+         in: "path"
+         description: "ID of book to return"
+         required: true
+         type: "string"
+         format: "int64"
+       responses:
+         200:
+           description: "successful operation"
+           schema:
+             $ref: "#/definitions/book"
+         400:
+           description: "Invalid bookId supplied"
+         404:
+           description: "book not found"
+     delete:
+       tags:
+       - "book"
+       summary: "Deletes a book"
+       description: ""
+       operationId: "deletebook"
+       produces:
+       - "application/xml"
+       - "application/json"
+       parameters:
+       - name: "bookId"
+         in: "path"
+         description: "Pet book to delete"
+         required: true
+         type: "string"
+         format: "int64"
+       responses:
+         400:
+           description: "Invalid bookvalue"
 definitions:
   student:
     type: "object"
     required:
-    - "name"
+    - "studentId"
     - "Id"
     properties:
-      name:
-        type: "String"
+      studentId:
+        type: "string"
         format: "int64"
       Id:
-        type: "int"
+        type: "integer"
         format: "int64"
-      tags:
-        type: "array"
-        xml:
-          name: "tag"
-          wrapped: true
-        items:
-          $ref: "#/definitions/Tag"
-      status:
-        type: "string"
-        description: "student status in the store"
-        enum:
-        - "available"
-        - "pending"
-        - "sold"
     xml:
       name: "student"
   book:
     type: "object"
     required:
-    - "name"
+    - "bookId"
     - "price"
     properties:
-      name:
-        type: "String"
+      bookId:
+        type: "string"
         format: "int64"
       price:
-        type: "Float"
+        type: "integer"
         format: "int64"
-      tags:
-        type: "array"
-        xml:
-          name: "tag"
-          wrapped: true
-        items:
-          $ref: "#/definitions/Tag"
-      status:
-        type: "string"
-        description: "book status in the store"
-        enum:
-        - "available"
-        - "pending"
-        - "sold"
     xml:
       name: "book"
 
@@ -226,8 +196,8 @@ definitions:
 <!--     student: -->
 <!--     Properties: -->
 <!--      -->
-<!--         name -->
-<!--         String -->
+<!--         studentId -->
+<!--         string -->
 <!--      -->
 <!--          -->
 <!--          -->
@@ -236,8 +206,8 @@ definitions:
 <!--     book: -->
 <!--     Properties: -->
 <!--      -->
-<!--         name -->
-<!--         String -->
+<!--         bookId -->
+<!--         string -->
 <!--      -->
 <!--          -->
 <!--          -->

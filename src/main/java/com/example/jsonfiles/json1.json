@@ -4,12 +4,12 @@
       "className": "student",
       "variable": [
         {
-          "fieldName": "name",
-          "datatype": "String"
+          "fieldName": "studentId",
+          "datatype": "string"
         },
         {
           "fieldName": "Id",
-          "datatype": "int"
+          "datatype": "integer"
         }
       ]
     },
@@ -17,12 +17,12 @@
       "className": "book",
       "variable": [
         {
-          "fieldName": "name",
-          "datatype": "String"
+          "fieldName": "bookId",
+          "datatype": "string"
         },
         {
           "fieldName": "price",
-          "datatype": "Float"
+          "datatype": "integer"
         }
       ]
     }

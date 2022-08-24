@@ -14,80 +14,79 @@ info:
 host: "petstore.swagger.io"
 basePath: "/v2"
 tags:{{#each classes}}
-    - name: "{{className}}"
+    - name: {{className}}
       description: "Everything about your {{className}}"{{/each}}
 schemes:
--"http"
+- "http"
 paths:{{#each classes}}
-    /{{className}}:
-      post:
-        tags:
-        - "{{className}}"
-        summary: "Add a new {{className}} object"
-        description: ""
-        operationId: "add{{className}}"
-        consumes:
-        - "application/json"
-        - "application/xml"
-        produces:
-        - "application/xml"
-        - "application/json"
-        parameters:
-        - in: "body"
-          name: "body"
-          description: "Pet object that needs to be added to the store"
-          required: true{{#each variable}}{{#if @first}}
-    /{{className}}/{ {{fieldName}} }:
-    get:
-      tags:
-      - "{{className}}"
-      summary: "Find {{className}} by {{#if @first}}{{fieldName}}{{/if}}"
-      description: "Returns a single {{className}}"
-      operationId: "get{{className}}By{{#if @first}}{{fieldName}}{{/if}}"
-      produces:
-      - "application/xml"
-      - "application/json"
-      parameters:
-      - name: "{{#if @first}}{{fieldName}}{{/if}}"
-        in: "path"
-        description: "ID of {{className}} to return"
-        required: true
-        type: "{{#if @first}}{{datatype}}{{/if}}"
-        format: "int64"
-      responses:
-        200:
-          description: "successful operation"
-          schema:
-            $ref: "#/definitions/{{className}}"
-        400:
-          description: "Invalid {{#if @first}}{{fieldName}}{{/if}} supplied"
-        404:
-          description: "{{className}} not found"
-      security:
-      - api_key: []
-    delete:
-      tags:
-      - "{{className}}"
-      summary: "Deletes a {{className}}"
-      description: ""
-      operationId: "delete{{className}}"
-      produces:
-      - "application/xml"
-      - "application/json"
-      parameters:
-      - name: "{{#if @first}}{{fieldName}}{{/if}}"
-        in: "path"
-        description: "Pet {{className}} to delete"
-        required: true
-        type: "{{#if @first}}{{datatype}}{{/if}}"
-        format: "int64""
-      responses:
-        400:
-          description: "Invalid {{className}}value"
-      security:
-      - petstore_auth:
-        - "write:pets"
-        - "read:pets"{{/if}}{{/each}}{{/each}}
+   /{{className}}:
+     post:
+       tags:
+       - "{{className}}"
+       summary: "Add a new {{className}} object"
+       description: ""
+       operationId: "add{{className}}"
+       consumes:
+       - "application/json"
+       - "application/xml"
+       produces:
+       - "application/xml"
+       - "application/json"
+       parameters:
+       - in: "body"
+         name: "body"
+         description: "Pet object that needs to be added to the store"
+         required: true
+         schema:
+           $ref: "#/definitions/{{className}}"
+       responses:
+         405:
+          description: "Invalid input"{{#each variable}}{{#if @first}}
+   /{{className}}/{ {{fieldName}} }:
+     get:
+       tags:
+       - "{{className}}"
+       summary: "Find {{className}} by {{#if @first}}{{fieldName}}{{/if}}"
+       description: "Returns a single {{className}}"
+       operationId: "get{{className}}By{{#if @first}}{{fieldName}}{{/if}}"
+       produces:
+       - "application/xml"
+       - "application/json"
+       parameters:
+       - name: "{{#if @first}}{{fieldName}}{{/if}}"
+         in: "path"
+         description: "ID of {{className}} to return"
+         required: true
+         type: "{{#if @first}}{{datatype}}{{/if}}"
+         format: "int64"
+       responses:
+         200:
+           description: "successful operation"
+           schema:
+             $ref: "#/definitions/{{className}}"
+         400:
+           description: "Invalid {{#if @first}}{{fieldName}}{{/if}} supplied"
+         404:
+           description: "{{className}} not found"
+     delete:
+       tags:
+       - "{{className}}"
+       summary: "Deletes a {{className}}"
+       description: ""
+       operationId: "delete{{className}}"
+       produces:
+       - "application/xml"
+       - "application/json"
+       parameters:
+       - name: "{{#if @first}}{{fieldName}}{{/if}}"
+         in: "path"
+         description: "Pet {{className}} to delete"
+         required: true
+         type: "{{#if @first}}{{datatype}}{{/if}}"
+         format: "int64"
+       responses:
+         400:
+           description: "Invalid {{className}}value"{{/if}}{{/each}}{{/each}}
 definitions:{{#each classes}}
   {{className}}:
     type: "object"
@@ -97,20 +96,6 @@ definitions:{{#each classes}}
       {{fieldName}}:
         type: "{{datatype}}"
         format: "int64"{{/each}}
-      tags:
-        type: "array"
-        xml:
-          name: "tag"
-          wrapped: true
-        items:
-          $ref: "#/definitions/Tag"
-      status:
-        type: "string"
-        description: "{{className}} status in the store"
-        enum:
-        - "available"
-        - "pending"
-        - "sold"
     xml:
       name: "{{className}}"{{/each}}
 

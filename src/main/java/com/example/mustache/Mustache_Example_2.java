@@ -3,23 +3,17 @@ package com.example.mustache;
 import com.github.mustachejava.DefaultMustacheFactory;
 import com.github.mustachejava.Mustache;
 import com.github.mustachejava.MustacheFactory;
-import com.github.mustachejava.util.InternalArrayList;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.slf4j.Logger;
-import org.springframework.http.converter.json.GsonBuilderUtils;
 
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
-import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 
 
@@ -74,7 +68,7 @@ public class Mustache_Example_2 {
         //StringWriter object
         StringWriter writer = new StringWriter();
         MustacheFactory mf = new DefaultMustacheFactory();
-        Mustache mustache2 = mf.compile("template2.mustache");
+        Mustache mustache2 = mf.compile("MustacheTemplates/template2.mustache");
         mustache2.execute(new PrintWriter(System.out), context).flush();
         System.out.println();
         Path path1 = Paths.get("D:\\Intellj Projects\\Mustache_Example\\src\\main\\java\\com\\example\\mustache");
@@ -84,7 +78,7 @@ public class Mustache_Example_2 {
         File files = new File(path);
         try {
             if (files.createNewFile()) {
-                Mustache mustache = mf.compile("javatemplate.mustache");
+                Mustache mustache = mf.compile("MustacheTemplates/javatemplate.mustache");
                 mustache.execute(writer, context).flush();
                 String s = writer.toString();
                 Files.write(Paths.get(String.valueOf(path)), s.getBytes(), StandardOpenOption.APPEND);
@@ -103,7 +97,7 @@ public class Mustache_Example_2 {
         File files1=new File(String.valueOf(path2));
         try {
             if (files1.createNewFile()) {
-                Mustache mustache3 = mf.compile("ConnectionPool.mustache");
+                Mustache mustache3 = mf.compile("MustacheTemplates/ConnectionPool.mustache");
                 mustache3.execute(writer, context).flush();
                 Files.write(path2, writer.toString().getBytes(), StandardOpenOption.APPEND);
                 LOG.info("File Created Successfully");
@@ -120,7 +114,7 @@ public class Mustache_Example_2 {
         File files2=new File(String.valueOf(path3));
         try {
             if (files2.createNewFile()) {
-                Mustache mustache4 = mf.compile("RestController.mustache");
+                Mustache mustache4 = mf.compile("MustacheTemplates/RestController.mustache");
                 mustache4.execute(writer, context).flush();
                 Files.write(path3, writer.toString().getBytes(), StandardOpenOption.APPEND);
                 LOG.info("File Created Successfully");
@@ -155,7 +149,7 @@ public class Mustache_Example_2 {
         try {
             if (files3.createNewFile()) {
                 StringReader reader1=new StringReader(content);
-                Mustache mustache7 = mf.compile("contextTemplate.mustache");
+                Mustache mustache7 = mf.compile("MustacheTemplates/contextTemplate.mustache");
                 mustache7.execute(writer, content).flush();
                 Files.write(path4, writer.toString().getBytes(), StandardOpenOption.APPEND);
 

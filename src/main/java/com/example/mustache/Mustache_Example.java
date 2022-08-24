@@ -3,7 +3,6 @@ package com.example.mustache;
 import com.github.mustachejava.DefaultMustacheFactory;
 import com.github.mustachejava.Mustache;
 import com.github.mustachejava.MustacheFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -46,7 +45,7 @@ public class Mustache_Example {
     public static void main(String[] args) throws IOException {
         SpringApplication.run(Mustache_Example.class, args);
         MustacheFactory mf = new DefaultMustacheFactory();
-        Mustache mustache = mf.compile("template.mustache");
+        Mustache mustache = mf.compile("MustacheTemplates/template.mustache");
         mustache.execute(new PrintWriter(System.out), new Mustache_Example()).flush();
     }
 }
