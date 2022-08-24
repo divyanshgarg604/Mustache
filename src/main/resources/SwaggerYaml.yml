@@ -44,7 +44,7 @@ paths:
        responses:
          405:
           description: "Invalid input"
-   /student/{ studentId }:
+   /student/{studentId}:
      get:
        tags:
        - "student"
@@ -112,7 +112,7 @@ paths:
        responses:
          405:
           description: "Invalid input"
-   /book/{ bookId }:
+   /book/{bookId}:
      get:
        tags:
        - "book"

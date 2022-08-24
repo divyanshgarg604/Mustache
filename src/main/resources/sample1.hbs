@@ -42,7 +42,7 @@ paths:{{#each classes}}
        responses:
          405:
           description: "Invalid input"{{#each variable}}{{#if @first}}
-   /{{className}}/{ {{fieldName}} }:
+   /{{className}}/{ {{~fieldName~}}}:
      get:
        tags:
        - "{{className}}"
