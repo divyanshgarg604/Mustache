@@ -88,7 +88,7 @@ paths:
          format: "int64"
        responses:
          400:
-           description: "Invalid studentvalue"
+           description: "Invalid student value"
    /book:
      post:
        tags:
@@ -156,7 +156,7 @@ paths:
          format: "int64"
        responses:
          400:
-           description: "Invalid bookvalue"
+           description: "Invalid book value"
 definitions:
   student:
     type: "object"

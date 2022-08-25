@@ -24,10 +24,10 @@ public class Handlebar {
         {
             Handlebars handlebars = new Handlebars();
             Template template = handlebars.compile("sample1");
-            Path path1 = Paths.get("D:\\Intellj Projects\\Mustache_Example\\src\\main\\resources");
+            Path path1 = Paths.get("D:\\handlebar\\Mustache\\src\\main\\resources");
             String filename = "SwaggerYaml" + ".yml";
             String path = path1 + File.separator + filename;
-            FileReader fileReader = new FileReader("D:\\Intellj Projects\\Mustache_Example\\src\\main\\java\\com\\example\\jsonfiles\\json1.json");
+            FileReader fileReader = new FileReader("D:\\handlebar\\Mustache\\src\\main\\java\\com\\example\\jsonfiles\\json1.json");
             JSONParser jsonParser = new JSONParser();
             Object obj = jsonParser.parse(fileReader);
             FileWriter fileWriter =new FileWriter(path);
