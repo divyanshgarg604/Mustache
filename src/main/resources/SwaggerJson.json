@@ -1,7 +1,1 @@
-
-
-
-{
-  "variables":[[name, id],[studentId, name, id]],
-  "classname":["Student","Books"]
-}
+{"classes":[{"classname":"Student","variable":[{"format":"int64","fieldName":"name","dataType":"string"},{"format":"int64","fieldName":"id","dataType":"integer"}]},{"classname":"Books","variable":[{"format":"int64","fieldName":"bookid","dataType":"integer"},{"format":"int64","fieldName":"name","dataType":"string"},{"format":"int64","fieldName":"id","dataType":"integer"}]}]}

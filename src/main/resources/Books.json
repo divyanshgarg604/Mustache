@@ -1,12 +1,1 @@
-
-{
-  "Student": {
-    "name": null,
-    "id": null
-  },
-  "Books": {
-    "studentId": null,
-    "name": null,
-    "id": null
-  }
-}
+{"Student":{"name":"String","id":"Integer"},"Books":{"bookid":"Integer","name":"String","id":"Integer"}}
