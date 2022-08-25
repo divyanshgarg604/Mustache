@@ -29,6 +29,7 @@ public class ClassLoader {
 
     /**
      * service method to convert into json file for creating swaggerApi yaml file
+     *
      * @param
      * @return
      */
@@ -134,6 +135,7 @@ public class ClassLoader {
 
     /**
      * service method to fetch fully qualified classname from package
+     *
      * @return
      */
     public static Set<String> readClassName() {
@@ -149,6 +151,7 @@ public class ClassLoader {
 
     /**
      * service method is used to load class from fully qualified classname
+     *
      * @param fullyQualifiedClassName
      */
 
@@ -181,33 +184,40 @@ public class ClassLoader {
 
     /**
      * service method to get json object
+     *
      * @param classType
      * @return
      */
-    public static JSONObject getJsonBody(String classType) throws ClassNotFoundException {
-        JSONObject object = new JSONObject();
-        Field[] fields = Class.forName(classType).getDeclaredFields();
+    public static JSONObject getJsonBody(String classType) {
 
-        List<Field> fieldlist = Arrays.stream(fields).filter(field -> field.getAnnotation(Id.class) != null).collect(Collectors.toList());
+        JSONObject object = null;
+        try {
+            object = new JSONObject();
+            Field[] fields = Class.forName(classType).getDeclaredFields();
 
-        for (Field field : Arrays.stream(fields).skip(1).collect(Collectors.toList())) {
-            if (!fieldlist.contains(field)) {
-                fieldlist.add(field);
+            List<Field> fieldlist = Arrays.stream(fields).filter(field -> field.getAnnotation(Id.class) != null).collect(Collectors.toList());
+
+            for (Field field : Arrays.stream(fields).skip(1).collect(Collectors.toList())) {
+                if (!fieldlist.contains(field)) {
+                    fieldlist.add(field);
+                }
+
             }
 
-        }
+            for (Field field : fieldlist) {
+                String fieldName = field.getName();
+                String fieldType = field.getType().getSimpleName();
+                object.put(fieldName, fieldType);
+            }
+        } catch (Exception e) {
 
-        for (Field field : fieldlist) {
-            String fieldName = field.getName();
-            String fieldType = field.getType().getSimpleName();
-            object.put(fieldName, fieldType);
+            log.error("Exception in getJsonBody():{}" + e.getMessage());
         }
-
         return object;
     }
 
 
-    public static void main(String[] args) throws ClassNotFoundException {
+    public static void main(String[] args) {
         SpringApplication.run(Mustache_Example.class, args);
 
         loadClass(readClassName());
