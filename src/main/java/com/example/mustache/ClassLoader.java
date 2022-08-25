@@ -87,12 +87,8 @@ public class ClassLoader {
                     fieldTypes.add(dataTypeMap.get(fieldType));
                 }
 
-                System.out.println(formats);
-
 
                 fields.addAll(jsonBody.keySet());
-
-                System.out.println("fields" + fields);
 
 
                 json2.put("classname", classname);
@@ -100,16 +96,12 @@ public class ClassLoader {
                 int count = 0;
 
                 while (count != fields.size()) {
-                    System.out.println("The size of fields:" + fields.size());
-
                     JSONObject json3 = new JSONObject();
 
                     json3.put("fieldName", fields.get(count));
                     json3.put("dataType", fieldTypes.get(count));
                     json3.put("format", formats.get(count));
 
-
-                    System.out.println("json 4 value  " + json3);
                     json2.put("variable", jsonArray2.put(json3));
 
                     count++;
